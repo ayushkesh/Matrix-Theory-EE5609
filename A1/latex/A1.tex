@@ -249,62 +249,37 @@ If $\vec{a}$ = \myvec{ 5 \\ -1 \\ -3 } and $\vec{b}$= \myvec{ 1 \\ 3 \\ -5}, the
 %Let $\vec{a}$=\myvec{ 5 \\ -1 \\ -3 }, %$\vec{b}$=\myvec{ 1 \\ 3 \\ -5}, and %$\vec{A}$=$\vec{a+b}$ and $\vec{B}$=$\vec{a-b}$.
 To check if the two lines are perpendicular, we perform scalar product of the two direction vectors %$\vec{A}$ and $\vec{B}$ using equation \ref{eq3} as follows
 \begin{align}
-\vec{A^T}\vec{B}= 0\label{eq:1}
-\end{align}
-\begin{align}
+\vec{A^T}\vec{B}= 0\label{eq:1}\\
 \vec{A}^T\vec{B}=\brak{\vec{a}+\vec{b}}^T\brak{\vec{a}-\vec{b}}
 \end{align}
-\textbf{NOTE :}The transpose of a sum is the sum of transposes so 
+The transpose of a sum is the sum of transposes so,
 \begin{align}
-\brak{\vec{a}+\vec{b}}^T = \brak{\vec{a}^T+\vec{b}^T} 
-\end{align}
-\begin{align}
+\brak{\vec{a}+\vec{b}}^T = \brak{\vec{a}^T+\vec{b}^T} \\
     \vec{A}^T\vec{B} = \brak{\vec{a}^T+ \vec{b}^T}\brak{\vec{a}-\vec{b}}\\
     \vec{a}^T\brak{\vec{a}-\vec{b}}+\vec{b}^T\brak{\vec{a}-\vec{b}}\\
-    \implies\vec{a}^T\vec{a}-\vec{a}^T\vec{b}+\vec{b}^T\vec{a}-\vec{b}^T\vec{b}
-\end{align}
-\begin{align}
+    \implies\vec{a}^T\vec{a}-\vec{a}^T\vec{b}+\vec{b}^T\vec{a}-\vec{b}^T\vec{b}\\
     \because\vec{a}^T\vec{a}= \norm{\vec{a}}^2\label{eq:es17btech11002_1}\\
     \because\vec{b}^T\vec{b}= \norm{\vec{b}}^2\label{eq:es17btech11002_2}\\
     \because\vec{a}^T\vec{b}=\vec{b}^T\vec{a}\label{eq:es17btech11002_3}
 \end{align}
 Using \eqref{eq:es17btech11002_1}, \eqref{eq:es17btech11002_2}  and \eqref{eq:es17btech11002_3}
 \begin{align}
-    \vec{A}^T\vec{B}= \norm{\vec{a}}^2-\vec{a}^T\vec{b}+\vec{a}^T\vec{b}-\norm{\vec{b}}^T
-\end{align}
-\begin{align}
+    \vec{A}^T\vec{B}= \norm{\vec{a}}^2-\vec{a}^T\vec{b}+\vec{a}^T\vec{b}-\norm{\vec{b}}^T\\
     \norm{\vec{a}}^2= 5^2+(-1)^2+(-3)^2= 35\label{eq:es17btech11002_4}\\ 
     \norm{\vec{b}}^2= 1^2+(3)^2+(-5)^2= 35\label{eq:es17btech11002_5}\\ 
-\end{align}
-\begin{align}
     \vec{A}^T\vec{B}= \norm{\vec{a}}^2-\norm{\vec{b}}^2
 \end{align}
 Using \eqref{eq:es17btech11002_4}  and \eqref{eq:es17btech11002_5} \\ 
 \begin{align}
    \implies\vec{A}^T\vec{B}= 35-35 = 0 
 \end{align}
-%\begin{align}
-%\vec{A}\vec{B}= -\myvec{ 5 \\ -1 \\ -3 }^T\myvec{ 1 \\ 3 %\\ -5}+\myvec{ 1 \\ 3 \\ -5}^T\myvec{ 5 \\ -1 \\ -3 }\\
-%\vec{A}\vec{B}= -\myvec{ 5 & -1 & -3 }\myvec{ 1 \\ 3 \\ %-5}+\myvec{ 1 & 3 & -5}\myvec{ 5 \\ -1 \\ -3 }
-%\end{align}
-%\begin{align}
-%\vec{AB}= \brak{5\times1+(-1)\times3-(-3)\times(-5)} \\\ %-\brak{1\times5+3\times(-1)+(-5)\times(-3)}\\
-%\implies(5-3+15)-(5-3+15)=0
-%\end{align}
-%\begin{align}
-%\implies\vec{A}\vec{B} &= 0
-%\end{align}
 Thus the direction vectors of the two lines satisfies the equation \ref{eq:1}, hence proved that the lines are \textbf{perpendicular}.
 \\
 \textbf{Python Code:}
-%
 \begin{lstlisting}
 https://github.com/ayushkesh/Matrix−Theory−EE5609/blob/master/A1/codes/A1 code.py
-
 \end{lstlisting}
-%
 \textbf{Latex codes:}
-%
 \begin{lstlisting}
 https://github.com/ayushkesh/Matrix-Theory-EE5609/tree/master/A1/latex/A1.tex
 \end{lstlisting}
