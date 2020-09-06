@@ -252,35 +252,32 @@ Examine the consistency of the system of given Equation.
 \section{\textbf{Solution}}
 The given system of equations can be written in the form of \textbf{AX=B} where,
 \begin{align}
-    A=\begin{bmatrix}
-    1 &2 \\
-    2 & 3
-\end{bmatrix}\\
-X= \begin{bmatrix}
-x\\y
-\end{bmatrix}\\
-B= \begin{bmatrix}
-2\\3
-\end{bmatrix}\\
+    A=\myvec{ 1 &2 \\2 & 3}\\
+X= \myvec{x\\y}\\
+B= \myvec{2\\3}\\
 \implies AX=B\\
 \implies A^{-1}AX= A^{-1}B\\
 \because A^{-1}A= I\\
 \implies X= A^{-1}B
 \end{align}
-Therefore if $A^{-1}$ exists, we will have a unique solution for these linear equations.\\
-Now,
+Therefore if $A^{-1}$ exists, we will have a unique solution for these linear equations. In order to use elementary row operation we may write \textbf {A= IA.}\\ 
 \begin{align}
-    A^{-1} = \frac{1}{\begin{vmatrix}A\end{vmatrix}}adj(A)
+    \myvec{1 & 2 \\ 2 & 3} = \myvec{1 & 0 \\0 & 1}\textbf{A}
 \end{align}
-So, $\begin{vmatrix}A\end{vmatrix}$ should not be \textbf{zero} for having a unique solution.
-    \begin{align}
-\begin{vmatrix}A\end{vmatrix} \neq \begin{vmatrix} 1 &2 \\
-    2 & 3 \end{vmatrix}\\
-\begin{vmatrix}A\end{vmatrix}= 3 \times 1-3\times 2= 3-4 =-1\\
-    \implies \begin{vmatrix}A\end{vmatrix}= -1 \neq 0\\
-    \because \begin{vmatrix}A\end{vmatrix} \neq 0
+Applying R2$\xrightarrow[]{}$R2-2R1
+\begin{align}
+    \myvec{1 & 2 \\ 0 & -1} = \myvec{1 & 0 \\-2 & 1}\textbf{A}
 \end{align}
-So the System of equation is \textbf{Consistent}.\\
+Applying R1$\xrightarrow[]{}$R1+2R2
+\begin{align}
+    \myvec{1 & 0 \\ 0 & -1} = \myvec{-3 & 2 \\-2 & 1}\textbf{A}  
+\end{align}
+Applying R1$\xrightarrow[]{}$ (-1)$\times R2$
+\begin{align}
+    \myvec{1 & 0 \\ 0 & 1} = \myvec{-3 & 2 \\2 & -1}\textbf{A}\\
+    \textbf{A}^{-1}= \myvec{-3 & 2 \\2 & -1}
+\end{align}
+\textbf{$A^{-1}$} exists, we will have a \textbf{unique solution} for these linear equation So the System of equation is \textbf{Consistent}.\\
 \textbf{Python Code:}
 \begin{lstlisting}
 https://github.com/ayushkesh/Matrix-Theory-EE5609/blob/master/A2/codes/A2.ipynb
