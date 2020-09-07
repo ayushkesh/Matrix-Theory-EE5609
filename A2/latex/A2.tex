@@ -250,34 +250,25 @@ Examine the consistency of the system of given Equation.
 \end{align}
 %
 \section{\textbf{Solution}}
-The given system of equations can be written in the form of \textbf{AX=B} where,
+The given system of equations can be written the matrix equation form as
 \begin{align}
-    A=\myvec{ 1 &2 \\2 & 3}\\
-X= \myvec{x\\y}\\
-B= \myvec{2\\3}\\
-\implies AX=B\\
-\implies A^{-1}AX= A^{-1}B\\
-\because A^{-1}A= I\\
-\implies X= A^{-1}B
+    \vec{A}\vec{x}=\vec{b}\\
+    \label{A}
+    \implies \myvec{1&2\\2&3}\myvec{x\\y}=\myvec{2\\3}
 \end{align}
-Therefore if $A^{-1}$ exists, we will have a unique solution for these linear equations. In order to use elementary row operation we may write \textbf {A= IA.}\\ 
+The augmented matrix for \eqref{A} is row reduced as follows
 \begin{align}
-    \myvec{1 & 2 \\ 2 & 3} = \myvec{1 & 0 \\0 & 1}\textbf{A}
+    \myvec{1&2&2\\2&3&3}
+    \xleftrightarrow[]{R_2\leftarrow R_2-2R_1}
+    \myvec{1&2&2\\0&-1&-1}\\
+   \xleftrightarrow[]{R_1\leftarrow R_1+2R_2}
+    \myvec{1&0&0\\0&-1&-1}
+    \xleftrightarrow[]{R_2\leftarrow (-1)R_2}
+    \myvec{1&0&0\\0&1&1}\\
+    \implies Rank\myvec{1&2\\2&3}=Rank\myvec{1&0&0\\0&1&1} =2
 \end{align}
-Applying R2$\xleftrightarrow[]{}$R2-2R1
-\begin{align}
-    \myvec{1 & 2 \\ 0 & -1} = \myvec{1 & 0 \\-2 & 1}\textbf{A}
-\end{align}
-Applying R1$\xleftrightarrow[]{}$R1+2R2
-\begin{align}
-    \myvec{1 & 0 \\ 0 & -1} = \myvec{-3 & 2 \\-2 & 1}\textbf{A}  
-\end{align}
-Applying R1$\xleftrightarrow[]{}$ (-1)$\times R2$
-\begin{align}
-    \myvec{1 & 0 \\ 0 & 1} = \myvec{-3 & 2 \\2 & -1}\textbf{A}\\
-    \textbf{A}^{-1}= \myvec{-3 & 2 \\2 & -1}
-\end{align}
-\textbf{$A^{-1}$} exists, we will have a \textbf{unique solution} for these linear equation So the System of equation is \textbf{Consistent}.\\
+Hence, system of equations is consistent and has unique solution \myvec{0\\1}\\
+\textbf{Note:} If the rank of the coefficient matrix and the rank of the augmented matrix, are same then it is \textbf{Consistent} and If the rank of the coefficient matrix is less than the rank of the augmented matrix then it is \textbf{Inconsistent}.\\
 \textbf{Python Code:}
 \begin{lstlisting}
 https://github.com/ayushkesh/Matrix-Theory-EE5609/blob/master/A2/codes/A2.ipynb
