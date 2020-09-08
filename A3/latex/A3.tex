@@ -255,17 +255,19 @@ Given determinant:
 \mydet{2 & 7 & 65\\
 3 & 8 & 75\\
 5 &9 &86}=0\\
-Applying transformation:\\
+Applying : {C_3 $\leftarrow$ C_3- C_1}\\
 \begin{align}
 \mydet{2 & 7 & 65\\
 3 & 8 & 75\\
 5 &9 &86}
-\xleftrightarrow[]{C_3 \leftarrow C_3- C_1 } 
+\xleftrightarrow[]{}%{C_3 \leftarrow C_3- C_1 } 
 &
 \mydet{2 & 7 & 65-2\\
 3 & 8 & 75-3\\
 5 &9 &86-5}
+\label{k1}
 \end{align}
+Simplified $\eqref{k1}$ So, $C_{3}$ can be written as,\\
 \begin{align}
 \mydet{2 & 7 & 63\\
 3 & 8 & 72\\
@@ -277,6 +279,7 @@ Applying transformation:\\
 5 &9 &9\times 9}
 \label{k}
 \end{align}
+Taking out 9 common from C_{3}\\
 \begin{align}
 \mydet{2 & 7 & 63\\
 3 & 8 & 72\\
@@ -288,7 +291,7 @@ Applying transformation:\\
 5 &9 &9}
 \label{kval}
 \end{align}
-Since $C_{2}$ and $C_{3}$ are identical in Eq. \ref{kval}, So $9\times 0$ = 0, Determinant is zero.\\
+Since $C_{2}$ and $C_{3}$ are identical in \ref{kval}, So $9\times 0$ = 0, Determinant is zero.\\
 \textbf{Note:} If any two row or column of determinant are \textbf{identical} ,then value of determinant is zero.\\
 \textbf{Python Code:}
 \begin{lstlisting}
