@@ -267,7 +267,18 @@ Given determinant:
 5 &9 &5}
 \label{k}
 \end{align}
-Since $C_{1}$ and $C_{3}$ are identical in \ref{k}, Determinant is zero.\\
+\begin{align}
+\mydet{2 & 7 & 2\\
+3 & 8 & 3\\
+5 &9 &5}
+\xleftrightarrow[]{C_3 \leftarrow C_3- C_{1} } 
+&
+\mydet{2 & 7 & 0\\
+3 & 8 & 0\\
+5 &9 &0}=0
+\label{k1}
+\end{align}
+Since $C_{1}$ and $C_{3}$ are identical in \ref{k},So Determinant is zero.\\
 \textbf{Note:} If any two row or column of determinant are \textbf{identical} ,then value of determinant is zero.\\
 \textbf{Python Code:}
 \begin{lstlisting}
