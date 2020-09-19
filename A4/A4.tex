@@ -1,14 +1,30 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
-
+%
 \usepackage{setspace}
 \usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{tkz-euclide} 
+\usepackage{textcomp}
 \usepackage{standalone}
+\usetikzlibrary{calc}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+%\doublespacing
 \singlespacing
 
-
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
 \usepackage[cmex10]{amsmath}
-
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
 \usepackage{amsthm}
+%\usepackage{iithtlc}
 \usepackage{mathrsfs}
 \usepackage{txfonts}
 \usepackage{stfloats}
@@ -16,10 +32,11 @@
 \usepackage{cite}
 \usepackage{cases}
 \usepackage{subfig}
-
+%\usepackage{xtab}
 \usepackage{longtable}
 \usepackage{multirow}
-
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{steinmetz}
@@ -28,9 +45,9 @@
 \usepackage{verbatim}
 \usepackage{tfrupee}
 \usepackage[breaklinks=true]{hyperref}
-\usepackage{graphicx}
-\usepackage{tkz-euclide}
-
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
 \usetikzlibrary{calc,math}
 \usepackage{listings}
     \usepackage{color}                                            %%
@@ -40,12 +57,18 @@
     \usepackage{multirow}                                         %%
     \usepackage{hhline}                                           %%
     \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
     \usepackage{lscape}     
 \usepackage{multicol}
 \usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{cleveref}
+%\usepackage{enumerate}
 
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
 \DeclareMathOperator*{\Res}{Res}
-
+%\renewcommand{\baselinestretch}{2}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
@@ -54,7 +77,7 @@
 \renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
 \renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
 
-
+% correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 \def\inputGnumericTable{}                                 %%
 
@@ -64,7 +87,12 @@ frame=single,
 breaklines=true,
 columns=fullflexible
 }
-\usepackage{pdfpages}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+\usepackage{graphicx}
 \usepackage{pgfplots}
 
 \begin{document}
@@ -77,12 +105,19 @@ columns=fullflexible
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{example}{Example}[section]
 \newtheorem{definition}[problem]{Definition}
-
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
 \newcommand{\BEQA}{\begin{eqnarray}}
 \newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
 \bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
 \providecommand{\mbf}{\mathbf}
+\providecommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}
+\providecommand{\norm}[1]{\ensuremath{\left\lVert#1\right\rVert}}
+\providecommand{\mean}[1]{\ensuremath{E\left[ #1 \right]}}
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
 \providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
 \providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
@@ -97,12 +132,9 @@ columns=fullflexible
 \theoremstyle{remark}
 \newtheorem{rem}{Remark}
 \newcommand{\sgn}{\mathop{\mathrm{sgn}}}
-\providecommand{\abs}[1]{\left\vert#1\right\vert}
 \providecommand{\res}[1]{\Res\displaylimits_{#1}} 
-\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
 %\providecommand{\norm}[1]{\lVert#1\rVert}
 \providecommand{\mtx}[1]{\mathbf{#1}}
-\providecommand{\mean}[1]{E\left[ #1 \right]}
 \providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
 %\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
 \providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
@@ -112,91 +144,126 @@ columns=fullflexible
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
 \numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
 \makeatletter
 \@addtoreset{figure}{problem}
 \makeatother
 \let\StandardTheFigure\thefigure
 \let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
 \renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
 \def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
      \def\rightbox#1{\makebox[0in][r]{#1}}
      \def\centbox#1{\makebox[0in]{#1}}
-     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
-     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}}
 \vspace{3cm}
-\title{Assignment 4}
+\title{Assignment-4\\}
 \author{Ayush Kumar}
 \maketitle
 \newpage
+%\tableofcontents
 \bigskip
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
+\begin{abstract}
+This document contains solution of Problem Geolin\brak{1.12}
+\end{abstract}
 Download latex-tikz codes from 
 %
 \begin{lstlisting}
 https://github.com/ayushkesh/Matrix-Theory-EE5609/tree/master/A4
 \end{lstlisting}
-
+%
 \section{\textbf{Question}}
 Show that $\sin30\degree=\frac{1}{2}$ and $\cos30\degree=\frac{\sqrt{3}}{2}$.
-\section{\textbf{Solution}}
-Consider an equilateral $\triangle{ABC}$ as shown in figure: \ref{fig:es17btech11002_fig1}.
+\section{SOLUTION}
+Consider an equilateral $\triangle{ABC}$ as shown in figure:\ref{fig:es1}. Draw a Perpendicular $\vec{AD}$ from A on the $\vec{BC}$, such that $\vec{AD}$ bisect $\angle A$ and $\vec{BC}$.
 \renewcommand{\thefigure}{1}
-\renewcommand{\thefigure}{\theenumi.\arabic{figure}}
 \begin{figure}[!ht]
-	\begin{center}
-		\resizebox{\columnwidth}{!}{\input{TriangleFig.tex}}
-	\end{center}
-\caption{}
-\label{fig:es17btech11002_fig1}
+    \centering
+    \resizebox{7cm}{!}{\input{figure.tex}}
+    \caption{Equilateral $\triangle{ABC}$}
+    \label{fig:es1}
 \end{figure}
-%
 \begin{align}
-    \label{eq:1}\norm{\vec{A-B}}=\norm{\vec{B-C}}=\norm{\vec{A-C}}
+    \label{eq:1}\norm{\vec{A-B}}=\norm{\vec{B-C}}=\norm{\vec{A-C}}= 2\norm{\vec{B-D}}
 \end{align}
-Let $\vec{B}=0$. Then substituting in \eqref{eq:1}
+To Find AD.
+\begin{multline}
+ \brak{\vec{B-A}}^{T}\brak{\vec{B-A}}\\\ =\brak{\vec{B-D+D-A}}^{T}\brak{\vec{B-D+D-A}}\\
+ = [\brak{\vec{B-D}}^{T}+\brak{\vec{D-A}}^{T}][\brak{\vec{B-D}}+\brak{\vec{D-A}}]\\
+ =\brak{\vec{B-D}}^{T}\brak{\vec{B-D}} + \brak{\vec{B-D}}^{T}\brak{\vec{D-A}} +\\ \brak{\vec{D-A}}^{T}\brak{\vec{B-D}} + \brak{\vec{D-A}}^{T}\brak{\vec{D-A}}
+\end{multline}
+Since BD is the perpendicular to AD the inner product is zero
 \begin{align}
-    \label{eq:2}\norm{\vec{A}}=\norm{\vec{C}}\\
-    \label{eq:3}\norm{\vec{A}}=\norm{\vec{A-C}}
+   \brak{\vec{B-D}}^{T}\brak{\vec{D-A}}=0\\ \brak{\vec{D-A}}^{T}\brak{\vec{B-D}} =0
 \end{align}
-Square on both sides in \eqref{eq:3}.
+which gives
+\begin{multline}
+    \brak{\vec{B-A}}^{T}\brak{\vec{B-A}} =\\\ \brak{\vec{B-D}}^{T}\brak{\vec{B-D}} + \brak{\vec{D-A}}^{T}\brak{\vec{D-A}}\\
+    \implies\norm{\vec{B-A}}^2=\norm{\vec{B-D}}^2 + \norm{\vec{D-A}}^2
+\end{multline} 
 \begin{align}
-    \norm{\vec{A}}^2=\norm{\vec{A-C}}^2\\
-    \norm{\vec{A}}^2=\norm{\vec{A}}^2+\norm{\vec{C}}^2-2\vec{A}^T\vec{C}\\
-    \norm{\vec{A}}^2=\norm{\vec{A}}^2+\norm{\vec{A}}^2-2\vec{A}^T\vec{C}\\
-    \implies0=\norm{\vec{A}}^2-2\vec{A}^T\vec{C}\\
-    \implies2\vec{A}^T\vec{C}=\norm{\vec{A}}^2\\
-    \label{eq:9}\implies\vec{A}^T\vec{C}=\frac{\norm{\vec{A}}^2}{2}
+  \norm{\vec{D-A}}^2=\norm{\vec{B-A}}^2-\norm{\vec{B-D}}^2\label{eq:5}
 \end{align}
-let $2\theta=\angle ABC$.
-Taking the inner product of sides AB and BC.
+By using Eq \eqref{eq:1} and \eqref{eq:5}
 \begin{align}
-    (\vec{A}-\vec{B})^T(\vec{B}-\vec{C}) =
-    \norm{\vec{A}-\vec{B}}\norm{\vec{B}-\vec{C}}\cos{2\theta}\\
-    \label{eq:11}\implies \cos{2\theta}=\frac{(\vec{A}-\vec{B})^T(\vec{B}-\vec{C})}{\norm{\vec{A}-\vec{B}}\norm{\vec{B}-\vec{C}}}
+ \norm{\vec{D-A}}\frac{\sqrt{3}}{2}\norm{\vec{B-A}}\\
+  \implies\norm{\vec{B-A}} = \frac{2}{\sqrt{3}}\norm{\vec{D-A}}\label{eq:6}
 \end{align}
-Substitute $\vec{B}=0$ in \eqref{eq:11}
+Let $\vec{A}=0$. Then substituting in \eqref{eq:1} and \eqref{eq:6}
 \begin{align}
-    \label{eq:12}\implies\cos{2\theta}=\frac{\vec{A}^T\vec{C}}{\norm{\vec{A}}\norm{\vec{C}}}
+    \label{eq:7}\norm{\vec{B}}=2\norm{\vec{B-D}}\\
+    \label{eq:8}\norm{\vec{B}}=\frac{2}{\sqrt{3}}\norm{\vec{D}}
 \end{align}
-Substitute \eqref{eq:2},\eqref{eq:9} in \eqref{eq:12}
+Square on both sides in \eqref{eq:7}.
 \begin{align}
-    \implies\cos2\theta=\frac{\frac{\norm{\vec{A}}^2}{2}}{\norm{\vec{A}}^2}\\
-    \implies\cos2\theta=\frac{1}{2}
+    \norm{\vec{B}}^2=4\norm{\vec{B-D}}^2\\
+    \frac{1}{4}\norm{\vec{B}}^2=\norm{\vec{B}}^2+\norm{\vec{D}}^2-2\vec{B}^T\vec{D}\label{eq:9}
 \end{align}
-In equilateral triangle, $\angle ABC=60\degree$
+Square on both sides in \eqref{eq:8}.
 \begin{align}
-    \label{eq:13}\implies\cos2\theta = \cos60\degree=\frac{1}{2}\\
-    \label{eq:14}\because 2\theta = 60\degree \implies \theta = 30\degree\\
-    \label{eq:15}\because \cos\theta = \sqrt{\frac{1+\cos2\theta}{2}}.
+\norm{\vec{B}}^2 = \frac{4}{3}\norm{\vec{D}}^2\label{eq:10}
 \end{align}
-Substitute \ref{eq:13} and \ref{eq:14} in \ref{eq:15}
+Using \eqref{eq:9} and \eqref{eq:10}
 \begin{align}
-    \cos30\degree = \sqrt{\frac{1+\frac{1}{2}}{2}}\\
-    \implies \cos30\degree= \sqrt{\frac{3}{4}} = \frac{\sqrt{3}}{2}.\\
+    \frac{1}{3}\norm{\vec{D}}^2=\frac{4}{3}\norm{\vec{D}}^2+\norm{\vec{D}}^2-2\vec{D}^T\vec{D}\\
+    \implies0=\norm{\vec{D}}^2-2\vec{B}^T\vec{D}\\
+     \implies\vec{B}^T\vec{D}=\norm{\vec{D}}^2\label{eq:15}
+\end{align}
+Let $\theta=\angle BAD$. and Taking the inner product of sides BA and AD.
+\begin{align}
+    \brak{\vec{B}-\vec{A}}^T\brak{\vec{A}-\vec{D}} =
+    \norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{D}}\cos{\theta}
+\end{align}
+\begin{align}
+    \cos{\theta}=\frac{\brak{\vec{B}-\vec{A}}^T\brak{\vec{A}-\vec{D}}}{\norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{D}}}\label{eq:13}
+\end{align}
+Substitute $\vec{A}=0$ in \eqref{eq:13}
+\begin{align}
+    \label{eq:12}\implies\cos{\theta}=\frac{\vec{B}^T\vec{D}}{\norm{\vec{B}}\norm{\vec{D}}}
+\end{align}
+Using \eqref{eq:8} 
+\begin{align}
+     \label{eq:12}\implies\cos{\theta}=\frac{\vec{B}^T\vec{D}}{\frac{2}{\sqrt{3}}\norm{\vec{D}}\norm{\vec{D}}}
+\end{align}
+\begin{align}
+\label{eq:12}\implies\cos{\theta}=\frac{\vec{B}^T\vec{D}}{\frac{2}{\sqrt{3}}\norm{\vec{D}}^2}
+\end{align}
+Substitute \eqref{eq:15} in \eqref{eq:12}
+\begin{align}
+\cos\theta = \frac{{\frac{\sqrt{3}}{2}\norm{\vec{D}}^2}}{\norm{\vec{D}}^2}\\
+    \implies\cos\theta=\frac{\sqrt{3}}{2}\\
+    \because cos30\degree = \frac{\sqrt{3}}{2}\\
+    \implies\theta = 30\degree\\
     \because \cos^2\theta +\sin^2\theta = 1\\
-    \implies \sin30\degree = \sqrt{1-\cos^230\degree}\\
+     \sin30\degree = \sqrt{1-\cos^230\degree}\\
     \implies\sin30\degree = \frac{1}{2}.
 \end{align} 
 \end{document}
