@@ -184,7 +184,6 @@ https://github.com/ayushkesh/Matrix-Theory-EE5609/tree/master/A4
 Show that $\sin30\degree=\frac{1}{2}$ and $\cos30\degree=\frac{\sqrt{3}}{2}$.
 \section{SOLUTION}
 Consider an equilateral $\triangle{ABC}$ as shown in figure:\ref{fig:es1}. Let the angle bisector of $\angle$A intersect side $\vec{BC}$ at a point D between B and C.
-In equilateral triangle all sides are equal.Hence,
 \renewcommand{\thefigure}{1}
 \begin{figure}[!ht]
     \centering
@@ -193,101 +192,28 @@ In equilateral triangle all sides are equal.Hence,
     \label{fig:es1}
 \end{figure}
 \begin{align}\label{eq:solutions/1/1/11}
-\label{eq:1}\norm{\vec{A-B}}=\norm{\vec{B-C}}=\norm{\vec{A-C}}= 2\norm{\vec{B-D}}
+\label{eq:1}\norm{\vec{A-B}}=\norm{\vec{B-C}}=\norm{\vec{A-C}}\\
+\angle ABD = \angle BAC = \angle ACD = 60\degree\\
+\angle BAD = \angle CAD = 30\degree
 \end{align}
-Putting $\vec{B}$= 0 in (\ref {eq:1}) we have,
+Using angle bisector theorem ie. triangle will divide the opposite side into two segments that are proportional to the other two sides of the triangle.\\
 \begin{align}
-\label{eq:es12}
-\norm{\vec{A}}=\norm{\vec{C}}
+    \frac{\norm{\vec{A-B}}}{\norm{\vec{B-D}}}= \frac{\norm{\vec{A-C}}}{\norm{\vec{B-C}}-\norm{\vec{B-D}}}
 \end{align}
+Using \eqref{eq:1}
 \begin{align}
-\label{eq:es13}
-\norm{\vec{A}}=\norm{\vec{A-C}}
+     \frac{\norm{\vec{A-B}}}{\norm{\vec{B-D}}}= \frac{\norm{\vec{A-B}}}{\norm{\vec{A-B}}-\norm{\vec{B-D}}}\\
+     \implies\norm{\vec{A-B}} = 2\norm{\vec{B-D}}\label{eq:es22}
 \end{align}
-Squaring  equation (\ref{eq:es12})
- \begin{align}
-\label{eq:es17}
-\norm{\vec{A}}^2=\norm{\vec{C}}^2
-\end{align}
-Squaring  equation (\ref{eq:es13})
- \begin{align}
-\label{eq:es14}
-\norm{\vec{A}}^2=\norm{\vec{A}}^2 - 2(\vec{A}^T )(\vec{C}) +\norm{\vec{C}}^2 \nonumber \\
-\implies \norm{\vec{A}}^2=2(\vec{A}^T )(\vec{C})
-\end{align}
-Taking the inner product of sides $AB$,$BC$ we have:
+Taking the inner product of sides BA and AD.
 \begin{align}
-    (\vec{A}-\vec{B})^T(\vec{B}-\vec{C}) =
-    \norm{\vec{A}-\vec{B}}\norm{\vec{B}-\vec{C}}\cos{ABC}
+    \brak{\vec{B}-\vec{A}}^T\brak{\vec{A}-\vec{D}} =
+    \norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{D}}\cos{\theta}\\
+    \cos{\angle BAD}=\frac{\brak{\vec{B}-\vec{A}}^T\brak{\vec{A}-\vec{D}}}{\norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{D}}}\label{eq:13}
 \end{align}
-The angle ABC from the  above equation is:
-\begin{align}\label{eq:es02}
-     \cos{ABC} = \frac{(\vec{A}-\vec{B})^T(\vec{B}-\vec{C})}{\norm{\vec{A}-\vec{B}}\norm{\vec{B}-\vec{C}}} 
-\end{align}
-Substituting value in (\ref{eq:es02}) and putting we have:
-\begin{align}\label{eq:es02}
-     \cos{ABC} = \frac{(\vec{A})^T(\vec{C})}{\norm{\vec{A}}^2}
-\end{align}
-From (\ref{eq:es14}) we have:
-\begin{align}\label{eq:es0222}
-     \cos{ABC} = \frac{(\vec{A})^T(\vec{C})}{2(\vec{A})^T (\vec{C})}\nonumber\\
-     \implies \cos{ABC} = 1/2\nonumber\\
-\implies \angle {ABC =60 \degree}
-\end{align}
-Taking the inner product of sides $AB$,$AC$ we have:
-\begin{align}
-    (\vec{B}-\vec{A})^T(\vec{A}-\vec{C}) =
-    \norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{C}}\cos{BAC}
-\end{align}
-The angle BAC from the  above equation is:
-\begin{align}\label{eq:es0270}
-     \cos{BAC} = \frac{(\vec{B}-\vec{A})^T(\vec{A}-\vec{C})}{\norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{C}}} 
-\end{align}
-Substituting value in (\ref{eq:es0270}) and putting we have:
-\begin{align}\label{eq:es0271}
-     \cos{BAC} = \frac{(\vec{A})^T(\vec{A-C})}{\norm{\vec{A}}^2}\\
-     \implies \frac{(\vec{A})^T(\vec{A})-(\vec{A})^T(\vec{C})}{\norm{\vec{A}}^2}
-\end{align}
-We know $(\vec{A})^T (\vec{A})= {\norm{\vec{A}}^2}$\\
-From  equation (\ref{eq:es14}) we have:
-$ (\vec{A})^T(\vec{C})= \frac{1}{2}{\norm{\vec{A}}^2}$\\
-Substituting values in (\ref{eq:es0271}) we have:
-\begin{align}\label{eq:es0272}
-\cos{BAC} =
-    \frac{{\frac{1}{2}\norm{\vec{A}}^2}}{\norm{\vec{A}}^2}\nonumber\\
-     \implies \cos{BAC} = 1/2\nonumber\\
-\implies \angle {BAC =60 \degree}
-\end{align}
-Taking the inner product of sides $AC$,$BC$ we have:
-\begin{align}
-    (\vec{C}-\vec{A})^T(\vec{C}-\vec{B}) =
-    \norm{\vec{C}-\vec{A}}\norm{\vec{C}-\vec{B}}\cos{ACB}
-\end{align}
-The angle ACB from the  above equation is:
-\begin{align}
-\label{eq:es0275}
-     \cos{ACB} = \frac{(\vec{C}-\vec{A})^T(\vec{C}-\vec{B})}{\norm{\vec{C}-\vec{A}}\norm{\vec{C}-\vec{B}}} 
-\end{align}
-Substituting value in (\ref{eq:es0275}) and putting we have:
-\begin{align}\label{eq:es0276}
-     \cos{ACB} = \frac{(\vec{C-A})^T(\vec{C})}{\norm{\vec{A}}^2}\nonumber\\
-     \implies \frac{(\vec{C})^T(\vec{C})-(\vec{A})^T(\vec{C})}{\norm{\vec{A}}^2}
-\end{align}
-We know $(\vec{C})^T (\vec{C})= {\norm{\vec{C}}^2}$\\
-From   (\ref{eq:es17})  and (\ref{eq:es14})  we have:\\
-$(\vec{A})^T(\vec{C})= \frac{1}{2}{\norm{\vec{A}}^2}=\frac{1}{2}{\norm{\vec{C}}^2}$\\
-Substituting values in (\ref{eq:es0276}) we have:
-\begin{align}
-%\label{eq:es0275}
-\cos {ACB}=
-     \frac{{\frac{1}{2}\norm{\vec{C}}^2}}{\norm{\vec{C}}^2}\nonumber\\
-     \implies \cos{ACB} = 1/2\nonumber\\
-\implies \angle {ACB = 60} \degree
-\end{align}
-Hence from  equation (\ref{eq:es0222}),(\ref{eq:es0272}) and(\ref{eq:es0275})
-\begin{align}
-\angle {ABC} =\angle {BAC}=\angle {ACB}=60\degree
-    \end{align}
+%
+%
+%
 Now To Find AD.
 \begin{multline}
  \brak{\vec{B-A}}^{T}\brak{\vec{B-A}}\\\ =\brak{\vec{B-D+D-A}}^{T}\brak{\vec{B-D+D-A}}\\
@@ -303,62 +229,43 @@ Now To Find AD.
 which gives
 \begin{multline}
     \brak{\vec{B-A}}^{T}\brak{\vec{B-A}} =\\\ \brak{\vec{B-D}}^{T}\brak{\vec{B-D}} + \brak{\vec{D-A}}^{T}\brak{\vec{D-A}}\\
-    \implies\norm{\vec{B-A}}^2=\norm{\vec{B-D}}^2 + \norm{\vec{D-A}}^2
-\end{multline} 
-\begin{align}
-  \norm{\vec{D-A}}^2=\norm{\vec{B-A}}^2-\norm{\vec{B-D}}^2\label{eq:5}
-\end{align}
-Substitutiing  Eq \eqref{eq:1}
+    \norm{\vec{B-A}}^2=\norm{\vec{B-D}}^2 + \norm{\vec{D-A}}^2\\
+    \implies\norm{\vec{D-A}}^2=\norm{\vec{B-A}}^2-\norm{\vec{B-D}}^2\label{eq:5}
+\end{multline}
+Using Eq \eqref{eq:es22} we get,
 \begin{align}
 \norm{\vec{D-A}}^2=\norm{\vec{B-A}}^2-\frac{1}{4}\norm{\vec{B-A}}^2\label{eq:24}\\
  \norm{\vec{D-A}}=\frac{\sqrt{3}}{2}\norm{\vec{B-A}}\\
   \implies\norm{\vec{B-A}} = \frac{2}{\sqrt{3}}\norm{\vec{D-A}}\label{eq:6}
 \end{align}
-Let $\vec{A}=0$. Then substituting in \eqref{eq:1} and \eqref{eq:6}
+Let $\vec{A}=0$. Substituting in \eqref{eq:es22} and \eqref{eq:6}
 \begin{align}
     \label{eq:7}\norm{\vec{B}}=2\norm{\vec{B-D}}\\
     \label{eq:8}\norm{\vec{B}}=\frac{2}{\sqrt{3}}\norm{\vec{D}}
 \end{align}
-Square on both sides in \eqref{eq:7}.
+Square on both sides in \eqref{eq:7} and \eqref{eq:8}, we get,
 \begin{align}
     \norm{\vec{B}}^2=4\norm{\vec{B-D}}^2\\
-    \frac{1}{4}\norm{\vec{B}}^2=\norm{\vec{B}}^2+\norm{\vec{D}}^2-2\vec{B}^T\vec{D}\label{eq:9}
-\end{align}
-Square on both sides in \eqref{eq:8}.
-\begin{align}
+    \frac{1}{4}\norm{\vec{B}}^2=\norm{\vec{B}}^2+\norm{\vec{D}}^2-2\vec{B}^T\vec{D}\label{eq:9}\\
 \norm{\vec{B}}^2 = \frac{4}{3}\norm{\vec{D}}^2\label{eq:10}
 \end{align}
-Using \eqref{eq:9} and \eqref{eq:10}
+Solving \eqref{eq:9} and \eqref{eq:10} we get,
 \begin{align}
     \frac{1}{3}\norm{\vec{D}}^2=\frac{4}{3}\norm{\vec{D}}^2+\norm{\vec{D}}^2-2\vec{D}^T\vec{D}\\
-    \implies0=\norm{\vec{D}}^2-2\vec{B}^T\vec{D}\\
+    0=\norm{\vec{D}}^2-2\vec{B}^T\vec{D}\\
      \implies\vec{B}^T\vec{D}=\norm{\vec{D}}^2\label{eq:15}
 \end{align}
-Let $\theta=\angle BAD$. and Taking the inner product of sides BA and AD.
+Substitute $\vec{A}=0$ in \eqref{eq:13} we get,
 \begin{align}
-    \brak{\vec{B}-\vec{A}}^T\brak{\vec{A}-\vec{D}} =
-    \norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{D}}\cos{\theta}
-\end{align}
-\begin{align}
-    \cos{\theta}=\frac{\brak{\vec{B}-\vec{A}}^T\brak{\vec{A}-\vec{D}}}{\norm{\vec{B}-\vec{A}}\norm{\vec{A}-\vec{D}}}\label{eq:13}
-\end{align}
-Substitute $\vec{A}=0$ in \eqref{eq:13}
-\begin{align}
-    \label{eq:12}\implies\cos{\theta}=\frac{\vec{B}^T\vec{D}}{\norm{\vec{B}}\norm{\vec{D}}}
-\end{align}
-From \eqref{eq:8} $\norm{\vec{B}}=\frac{2}{\sqrt{3}}\norm{\vec{D}}$
-\begin{align}
-     \label{eq:12}\implies\cos{\theta}=\frac{\vec{B}^T\vec{D}}{\frac{2}{\sqrt{3}}\norm{\vec{D}}\norm{\vec{D}}}
-\end{align}
-\begin{align}
-\label{eq:12}\implies\cos{\theta}=\frac{\vec{B}^T\vec{D}}{\frac{2}{\sqrt{3}}\norm{\vec{D}}^2}
+    \cos{\angle{BAD}}=\frac{\vec{B}^T\vec{D}}{\norm{\vec{B}}\norm{\vec{D}}}\\
+ \because\norm{\vec{B}}=\frac{2}{\sqrt{3}}\norm{\vec{D}}\\
+     \label{eq:12}\implies\cos{\angle{BAD}}=\frac{\vec{B}^T\vec{D}}{\frac{2}{\sqrt{3}}\norm{\vec{D}}\norm{\vec{D}}} = \frac{\vec{B}^T\vec{D}}{\frac{2}{\sqrt{3}}\norm{\vec{D}}^2}
 \end{align}
 Substitute \eqref{eq:15} in \eqref{eq:12}
 \begin{align}
-\cos\theta = \frac{{\frac{\sqrt{3}}{2}\norm{\vec{D}}^2}}{\norm{\vec{D}}^2}\\
-    \implies\cos\theta=\frac{\sqrt{3}}{2}\\
-    \because cos30\degree = \frac{\sqrt{3}}{2}\\
-    \implies\theta = 30\degree\\
+\cos\angle{BAD} = \frac{{\frac{\sqrt{3}}{2}\norm{\vec{D}}^2}}{\norm{\vec{D}}^2}= \frac{\sqrt{3}}{2}\\
+\because \angle{BAD}= 30\degree\\
+\implies \cos{30\degree}= \frac{\sqrt{3}}{2}\\
     \because \cos^2\theta +\sin^2\theta = 1\\
      \sin30\degree = \sqrt{1-\cos^230\degree}\\
     \implies\sin30\degree = \frac{1}{2}.
