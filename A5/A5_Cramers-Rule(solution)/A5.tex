@@ -63,6 +63,7 @@
 \usepackage{chngcntr}
 \usepackage{amsmath}
 \usepackage{cleveref}
+\usepackage{amsmath}
 %\usepackage{enumerate}
 
 %\usepackage{wasysym}
@@ -164,7 +165,7 @@ columns=fullflexible
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}}
 \vspace{3cm}
 \title{Assignment-5\\}
-\author{Ayush Kumar}
+\author{Ayush Kumar\\ES17BTECH11002}
 \maketitle
 \newpage
 %\tableofcontents
@@ -200,20 +201,39 @@ which can be expressed in matrix form
 Solve by using Cramer's Rule
 \begin{align}
     \Delta = \mydet{4a&0&-1\\0&4b&-1\\2\brak{a+b}&2\brak{a+b}&-1}\\
-    \xleftrightarrow[R_3\leftarrow R_3-\brak{\frac{a+b}{2b}}R_2]{R_3\leftarrow R_3-\brak{\frac{a+b}{2 a}}R_1}
-    \mydet{4a & 0 & -1 \\0 & 4b & -1 \\0 & 0 & \frac{a^2+b^2}{2ab}}\\
-    \implies 16ab\brak{\frac{a^2+b^2}{2ab}} = 8a^2+8b^2\label{eq:1} \\
+    \xleftrightarrow[R_2\leftarrow R_2-R_3]{R_1\leftarrow R_1-R_2}
+    \mydet{4a & -4b  & 0 \\-2\brak{a+b} & -2\brak{a-b} & 0 \\2\brak{a+b} & 2\brak{a+b} & -1}
+    \end{align}
+Expanding  along third column we get, 
+\begin{align}
+-1\left\{\brak{4a}\brak{-2}\brak{a-b} - \brak{-4b}\brak{-2}\brak{a+b}\right\}\\
+8\brak{a^2-ab+ab+b^2}\implies 8a^2+8b^2\label{eq:1}
+\end{align}
+\begin{align}
 \Delta_{1} =\mydet{4a^2 & 0 & -1 \\4b^2 & 4b & -1 \\ 2\brak{a+b}^2 & 2\brak{a+b} & -1}\\
-    \xleftrightarrow[R_3\leftarrow R_3-\brak{\frac{\brak{a+b}^2}{2a^2}}R_1]{R_2\leftarrow R_2-\brak{\frac{b^2}{a^2}}R_1}
-    \mydet{4a^2 & 0 & -1 \\0 & 4b & \frac{-a^2+b^2}{a^2} \\0 & 2a+2b &\frac{-a^2+b^2+2ab}{2a^2}}\\
-    \xleftrightarrow[]{R_3\leftarrow R_3-\brak{\frac{a+b}{2b}}R_2}
-    \mydet{4a^2 & 0 & -1 \\0 & 4b & \frac{-a^2+b^2}{a^2} \\0 & 0 & \frac{a^2+b^2}{2ab}}\\
-\implies 4a^2\brak{4b}\brak{\frac{a^2+b^2}{2ab}}= 8a^3+8ab^2\label{eq:2}\\
+    \xleftrightarrow[R_2\leftarrow R_2-R_3]{R_1\leftarrow R_1-R_2}
+    \mydet{4a^2-4b^2 & -4b & 0 \\-2a^2+2b^2-4ab & -2a+2b & 0 \\2\brak{a+b}^2 & 2\brak{a+b} & -1}
+\end{align}
+Expanding Along the third Column we get,
+\begin{align}
+-1\left\{\brak{4a^2-4b^2}\brak{-2a+2b} -\brak{-4b}\brak{-2a^2+2b^2-4ab}\right\}\\
+\brak{8a^3-8a^2b - 8ab^2 +8b^3}+\brak{8a^2b-8b^3+16ab^2}\\
+\implies 8a^3 -8ab^2+16ab^2 = 8a^3+8ab^2\label{eq:2}
+\end{align}
+% delta 2
+\begin{align}
 \Delta_{2} =
     \mydet{4a & 4a^2 & -1 \\0 & 4b^2 & -1 \\2a+2b & 2a^2+2b^2+4ab & -1}\\
-\xleftrightarrow[R_3\leftarrow R_3-\brak{\frac{a+b}{2b}}R_2]{R_3\leftarrow R_3-\brak{\frac{a+b}{2a}}R_1}
-\mydet{4a & 4a^2 & -1 \\0 & 4b^2 & -1 \\0 & 0 & \frac{a^2+b^2}{2ab}}\\
-\implies 4a\brak{4b^2}\brak{\frac{a^2+b^2}{2ab}} = 8b^3+8a^2b \label{eq:3}\\
+\xleftrightarrow[R_2\leftarrow R_2-R_3]{R_1\leftarrow R_1-R_2}
+\mydet{4a & 4a^2-4b^2 & 0 \\-2\brak{a+b} & -2a^2+2b^2-4ab & 0 \\2\brak{a+b} & 2a^2+2b^2+4ab & -1}
+\end{align}
+Expanding Along third column we get,
+\begin{align}
+-1\left\{\brak{4a}\brak{-2a^2+2b^2-4ab}-\brak{4a^2-4b^2}\brak{-2a-2b}\right\}\\
+\brak{8a^3-8ab^2+16a^2b}-\brak{8a^3-8ab^2+8a^2b-8b^3}\\
+\implies 8b^3+8a^2b\label{eq:3}
+\end{align}
+\begin{align}
 \Delta_{3} = 
     \mydet{4a & 0 & 4a^2 \\0 & 4b & 4b^2 \\2\brak{a+b} & 2\brak{a+b} & 2\brak{a+b}^2}\\
     \xleftrightarrow[R_3\leftarrow R_3-\brak{\frac{a+b}{2b}}R_2]{R_3\leftarrow R_3-\brak{\frac{a+b}{2a}}R_1}
