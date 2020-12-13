@@ -23,6 +23,7 @@
 \usepackage{longtable}
 \usepackage{multirow}
 
+
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{steinmetz}
@@ -97,14 +98,15 @@ columns=fullflexible
 \providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
 \providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
 \theoremstyle{remark}
+\renewcommand{\arraystretch}{2}
 \newtheorem{rem}{Remark}
 \newcommand{\sgn}{\mathop{\mathrm{sgn}}}
-\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\abs}[1]{\mathbf{\left\vert#1\right\vert}}
 \providecommand{\res}[1]{\Res\displaylimits_{#1}} 
-\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\providecommand{\norm}[1]{\mathbf{\left\lVert#1\right\rVert}}
 %\providecommand{\norm}[1]{\lVert#1\rVert}
 \providecommand{\mtx}[1]{\mathbf{#1}}
-\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\mean}[1]{\mathbf{E\left[ #1 \right]}}
 \providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
 %\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
 \providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
@@ -126,82 +128,85 @@ columns=fullflexible
      \def\centbox#1{\makebox[0in]{#1}}
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
-\vspace{3cm}
-\title{Assignment 13}
-\author{Ayush Kumar}
-\maketitle
-\bigskip
-\renewcommand{\thefigure}{\theenumi}
-\renewcommand{\thetable}{\theenumi}
-Download latex-tikz codes from 
-%
-\begin{lstlisting}
-https://github.com/ayushkesh
-\end{lstlisting}
-%
-\section{\textbf{Problem}}
-Let \vec{R[x]} denote the vector space of all real polynomial. Let $\vec{D:}\vec{R[x]}\rightarrow \vec{R[x]}$ denote the map $\vec{D}f$= $\frac{df}{dx}, \forall f $ then,\\ 
+\vspace{2cm}
+\begin{center}
+\huge Assignment 13\\
+\large Ayush Kumar\\
+\large ES17BTECH11002\\
+\end{center}
+\section{problem}
+Let \vec{R[x]} denote the vector space of all real polynomial. Let $\vec{D:}\vec{R[x]}\rightarrow \vec{R[x]}$ denote the map $\vec{D}f$= $\frac{df}{dx}, \forall f $ then,\\
 \begin{enumerate}
 \item $\vec{D}$ is one-one.
 \item $\vec{D}$ is onto. 
 \item There exist $E: \vec{R[x]} \rightarrow \vec{R[x]}$ so that $D(E(f))$ = $f, \forall f$.
 \item There exist $E:\vec{R[x]} \rightarrow \vec{R[x]}$ so that $E(D(f))$ = $f, \forall f$.
 \end{enumerate}
-%
-\section{\textbf{Explanation}}
-See Table \ref{eq:table:1}
-\onecolumn
+\section{Solution}
+\begin{align}
+\intertext{Let,} f = \sum_{i=0}^{n}f_{i}x^{i} &= f_{0}+f_{1}x+f_{2}{x}^2+. . . . f_{n}x^{n}.
+\end{align}\\
+$f$ is a real polynomial with degree n. and $\vec{V}$ having dim($\vec{V}$)= n.
+\begin{align}
+    \intertext{Now,}\\
+    D(f) = \frac{d}{dx}(f),  \forall {f}\\
+    = \frac{d}{dx}\brak{f_{0} +f_{1}x+ ..... f_{n}x^n}.\\
+    = f_{1}+2f_{2}x+....nf_{n}x^{n-1}.\\
+    \and D\brak{f} \in \vec{W} , dim(\vec{W}) = (n-1).
+     \intertext{As $\vec{W}$ is a real space of real polynomial with degree (n-1)}
+\end{align}
+\renewcommand{\thetable}{1}
 \begin{longtable}{|l|l|}
-\hline
-\text{Given} & \text{
-     Let $\vec{D:}\vec{R[x]}\rightarrow \vec{R[x]}$ denote the map $\vec{D}f$= $\frac{df}{dx}, \forall f$}
-\hline
-\textbf{Statement 1} & \text{D is one-one.}\\
-\hline
-& \parbox{10cm}{\begin{align}
-\text{$\vec{D}$ is not one-one because }\\
-f_{1} \ne f_{2}\\
-\implies Df_{1} = Df_{2}.\\
-\text{Take $f_{1}$=x then $f_{2}$= x+1}
-\end{align}}\\
-& \parbox{10cm}{\begin{center}
-\textbf{False Statement }
-\end{center}}\\
-\hline
-\textbf{Statement 2} & \text{ D is onto.}\\
-\hline
-& \parbox{10cm}{\begin{align}
- \text{D is not onto because }\\
-%\text{Take $f_{1}$=x then $f_{2}$= x+1}
- f(x) = \begin{cases}
-               1               & x  $\in  \mathbb{Q}$ \\
-               0               & x  $\in \mathbb{Q'}$ 
-           \end{cases}
-\end{align}}\\
-& \parbox{10cm}{\begin{center}
-\textbf{False Statement }
-\end{center}}\\
-\hline
-\textbf{Statement 3} & \text{There exist $E: $\vec{R[x]} \rightarrow \vec{R[x]}$ so that $D(E(f))$ = $f ,\forall f$.}\\
-\hline
-& \parbox{10cm}{\begin{align}
- \text{Not True because,}\\
- \text{Every integrable operator is not differentiable.}
-\end{align}}\\
-& \parbox{10cm}{\begin{center}
-\textbf{False Statement }
-\end{center}}\\
-\hline
+    \hline
+    Given& $\vec{D:}$\vec{R[x]}\rightarrow \vec{R[x]}$ denote the map $\vec{D}f$= $\frac{df}{dx}, \forall f$}\\
+    \hline
+    \textbf{Statement 1} & \text{D is one-one.}\\
+    \hline
+    &If $D$ is one-one $\implies \vec{N(D(f))}$ = 0\\
+    &$\implies dim(\vec{N(D(f))} =0$\\
+    &According to rank-Nullity theorem :- \\
+    & $dim(\vec{N(D)})$ + $dim(\vec{R(D)}$ = $dim(\vec{V}$)\\
+    & $\implies 0+ dim(\vec{R(D)}$ = n\\
+    & \implies $dim(\vec{R(D))}$=n\\
+    & As $dim(\vec{R(D)} \leq dim(\vec{W})$\\
+    & $*$ $dim \vec{R(D)} = dim(\vec{W})$, when $\vec{D}$ is one-one\\
+    & $*$ $dim \vec{R(D)}$ $<$ $dim(\vec{W})$, when $\vec{D}$ is not onto\\
+    & So $dim(\vec{R(D))}$= n not possible
+    \hline
+     & \text{False Statement}\\
+    \hline
+    \textbf{Statement 2} & \text{D is onto.}\\
+    \hline
+    & $dim(\vec{R(D)}) = dim(\vec{W})$\\
+    & $dim(\vec{R(D)}) = n-1$\\
+    & As range  $\vec{W}$ will be same for $f$, \\
+    & So there will be no nullspace\\
+    & $\implies dim(\vec{N(D)})= 0$\\
+    & But $dim(\vec{R(D)})= dim(\vec{V})$.
+     \hline
+     & \text{False Statement}\\
+    \hline
+\textbf{Statement 3} & \text{There exist $E: $\vec{R[x]} \rightarrow \vec{R[x]}$ so that $D(E(f))$ = $f ,\forall f$.}
+    \hline
+   & Let $E(f) = \int{f}dx$ \\
+   & \because $E(f)= \int{\brak{f_{0} + f_{1}x + f_{2}x^2 + .. .. f_{n}x^n}}dx$\\
+   &  = $f_{0}x+\frac{f_{1}x^2}{2} + ... ... \frac{f_{n}x^{n+1}}{n+1}$ + a, where a is any constant.\\
+   & Now, $D(E(f))= \frac{d}{dx}(E(f))$\\
+   & = $f_{0} +m f_{1}x+... f_{n}x^n$\\
+   & $\implies f$
+    \hline
+     & \text{True Statement}\\
+    \hline
 \textbf{Statement 4} & \text{There exist $E:\vec{R[x]} \rightarrow \vec{R[x]}$ so that $E(D(f))$ = $f, \forall f$. }\\
 \hline
-& \parbox{10cm}{\begin{align}
- \text{$\exists$ an integrable operator such that $E(D(f))= f, \forall f$}
-\end{align}}\\
-& \parbox{10cm}{\begin{center}
-\textbf{True Statement }
-\end{center}}\\
-\hline
-\caption{Explanation}
-\label{eq:table:1}
+    & This is Possible only when $E= D^{-1}$\\
+    & and in that case $\vec{V}$ and $\vec{W}$ must be isomorphic.\\
+    & $\implies D$ should be onto But from statement  2, we get $D$ is not onto.\\
+    & So there will be no such $\vec{E}$ st. $\vec{E(D(f))}=f$\\
+     \hline
+     & \text{True Statement}\\
+    \hline
+    \caption{Solution}
+    \label{tab:Cons}
 \end{longtable}
 \end{document}
